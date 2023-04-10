@@ -1,0 +1,19 @@
+## This pod will exceeds the memory limit so the it will try to restart container
+apiVersion: v1
+kind: Pod
+metadata:
+  name: stressod
+
+spec:
+  containers:
+    - name: stressapp
+      image: lovelearnlinux/stress:latest
+      resources:
+        limits:
+          cpu: "0.20m"
+          memory: "100Mi"
+        requests:
+          cpu: "0.10m"
+          memory: "50Mi"
+      command: ["stress"]
+      args: ["--vm", "1", "--vm-bytes", "110M", "--vm-hang", "1"]

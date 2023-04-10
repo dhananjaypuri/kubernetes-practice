@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bg-nginx-deployment-v2
+  labels:
+    app: web_v2
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: web_v2
+  template:
+    metadata:
+      labels:
+        app: web_v2
+    spec:
+      containers:
+        - name: webv2
+          image: lovelearnlinux/webserver:v2
+          ports:
+            - containerPort: 80

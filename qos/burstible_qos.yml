@@ -1,0 +1,22 @@
+## These pods have the second highest priority
+## In this only resources section is defined
+## Requests are gauranteed resources provided to the pod
+## Limits are the max allowed limit.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: webpod
+  labels:
+    app: web
+    env: prod
+spec:
+  containers:
+    - name: webpod1
+      image: nginx
+      resources:
+        limits:
+          cpu: "0.20m"
+          memory: "100Mi"
+        requests:
+          cpu: "0.10m"
+          memory: "50Mi"

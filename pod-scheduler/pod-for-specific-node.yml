@@ -1,0 +1,19 @@
+## This will run the pod on a specific node with the name manager
+apiVersion: v1
+kind: Pod
+metadata:
+  name: newpod
+  labels:
+    env: dev
+spec:
+  nodeName: node1
+  containers:
+    - name: newcon1
+      image: nginx
+      resources:
+        requests:
+          cpu: "0.10m"
+          memory: "50Mi"
+        limits:
+          cpu: "0.20m"
+          memory: "100Mi"

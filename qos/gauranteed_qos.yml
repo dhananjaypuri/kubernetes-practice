@@ -1,0 +1,20 @@
+## These pods have the highest priority
+## Limits and requests have the same values
+apiVersion: v1
+kind: Pod
+metadata:
+  name: webpod
+  labels:
+    app: web
+    env: prod
+spec:
+  containers:
+    - name: webpod1
+      image: nginx
+      resources:
+        limits:
+          cpu: "0.10m"
+          memory: "50Mi"
+        requests:
+          cpu: "0.10m"
+          memory: "50Mi"

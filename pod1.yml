@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: webpod
+  labels:
+    app: web
+    env: prod
+spec:
+  containers:
+    - name: webpod1
+      image: nginx
