@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: auto-scale-nginx-svc
+spec:
+  selector:
+    app: web_v1
+  type: ClusterIP
+  ports:
+    - port: 80
