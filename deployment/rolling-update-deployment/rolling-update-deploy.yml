@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8-rolling-update
+  labels:
+    app: web_app
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: web_app
+  minReadySeconds: 10
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: web_app
+    spec:
+      containers:
+        - name: webpod
+          image: lovelearnlinux/webserver:v1
+          ports:
+            - containerPort: 80
