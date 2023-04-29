@@ -1,0 +1,11 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: dev-admins
+  labels:
+    env: dev
+  namespace: dev
+rules:
+  - apiGroups: ["", "apps"]
+    resources: ["pods", "deployments"]
+    verbs: ["get", "list", "watch", "create"]

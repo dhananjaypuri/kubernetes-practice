@@ -1,0 +1,15 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: bind-role-to-dev-admins
+  labels:
+    env: dev
+  namespace: dev
+subjects:
+  - kind: User
+    name: dj
+    namespace: dev
+roleRef:
+  kind: Role
+  name: dev-admins
+  apiGroup: rbac.authorization.k8s.io
