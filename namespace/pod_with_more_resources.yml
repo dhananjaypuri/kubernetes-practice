@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: webpod6
+  namespace: dev
+  labels:
+    env: dev
+spec:
+  containers:
+    - name: webcont1
+      image: nginx
+      ports:
+        - containerPort: 80
+      resources:
+        limits:
+          cpu: "300m"
+          memory: "350Mi"
+        requests:
+          cpu: "200m"
+          memory: "200Mi"
