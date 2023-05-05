@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod2
+  namespace: default
+  labels:
+    app: web
+spec:
+  containers:
+    - name: webcont
+      image: coolgourav147/nginx-custom

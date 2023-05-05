@@ -1,0 +1,50 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod1
+  namespace: default
+  labels:
+    app: web
+spec:
+  containers:
+    - name: webcont
+      image: coolgourav147/nginx-custom
+  tolerations:
+    - effect: "NoSchedule"
+      key: "mysize"
+      operator: "Equal"
+      value: "large"
+
+##############################################
+# Below will try to schedule the pod on the node which has a taint named "mysize", and value "large" with NoSchedule Effect if it does not find this taint then it will schedule the pod on another node
+# tolerations:
+#   - effect: "NoSchedule"
+#     key: "mysize"
+#     operator: "Equal"
+#     value: "large"
+#############################################
+# Below will try to schedule the pod on the node which has a taint named "mysize", and value "large" irrespective of the effect NoSchedule Effect if it does not find this taint then it will schedule the pod on another node
+# tolerations:
+#   - 
+#     key: "mysize"
+#     operator: "Equal"
+#     value: "large"
+#############################################
+# Below will try to schedule the pod on the node which has a taint named "mysize", and value "large" irrespective of the effect NoSchedule Effect if it does not find this taint then it will schedule the pod on another node
+# tolerations:
+#   - 
+#     key: "mysize"
+#     value: "large"
+#############################################
+# Below will try to schedule the pod on the node which has a taint named "mysize", and any value irrespective of the any Effect if it does not find this taint then it will schedule the pod on another node
+# tolerations:
+#   - 
+#     key: "mysize"
+#     operator: "Exists"
+#############################################
+# Below will try to schedule the pod on the node which has a taint named "mysize", and any value irrespective of the any Effect if it does not find this taint then it will schedule the pod on another node
+# tolerations:
+#   - effect: ""
+#     key: "mysize"
+#     operator: "Exists"
+
